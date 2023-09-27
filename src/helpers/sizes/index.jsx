@@ -1,5 +1,5 @@
 import { Dimensions, Platform, StatusBar } from 'react-native'
-import { totalSize } from '../dimensions';
+import { totalSize } from '../dimensions'
 
 // const handleSize = (num) => {
 //     if (num <= 0) return 0;

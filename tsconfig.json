@@ -1,3 +1,63 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "lib": [
+      "es2017",
+      "DOM"
+    ],
+    "allowJs": true,
+    "jsx": "react-native",
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "typeRoots": [
+      "node_modules/@types",
+      "./src/**"
+    ],
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ],
+      "@assets": [
+        "./src/assets/"
+      ],
+      "@components": [
+        "./src/components/"
+      ],
+      "@constants": [
+        "./src/constants/"
+      ],
+      "@helpers": [
+        "./src/helpers/"
+      ],
+      "@screens": [
+        "./src/screens/"
+      ],
+      "@redux": [
+        "./src/redux/"
+      ],
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+  },
+  "include": [
+    "./**/*",
+    "*.tsx",
+    "*.json",
+    "*.tff",
+    "typings/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js",
+    "dist"
+  ]
 }
