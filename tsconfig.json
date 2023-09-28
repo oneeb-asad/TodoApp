@@ -42,6 +42,9 @@
       "@redux": [
         "./src/redux/"
       ],
+      "@core-ui": [
+        "./src/core-ui/"
+      ],
     },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

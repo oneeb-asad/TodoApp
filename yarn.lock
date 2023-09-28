@@ -1768,6 +1768,19 @@
     invariant "^2.2.4"
     nullthrows "^1.1.1"
 
+"@react-navigation/elements@^1.3.19":
+  version "1.3.19"
+  resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.19.tgz#18a4a754836af19c20d987e8ffc4f8b0ee2cbece"
+  integrity sha512-7hLvSYKPuDS070pza5gd43WDX7QgfuEmuTWNbCJhKdWlLudYmq3qzxGCBwCfO2dEI6+p8tla5wruaWiGKAbTYw==
+
+"@react-navigation/native-stack@^6.9.14":
+  version "6.9.14"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-6.9.14.tgz#6c3baf9d308e9e07c4f2feafb722d57c5b156936"
+  integrity sha512-7RiZkvMFN6f0kmANc63B/0m9ttQ2JpDIPWQwPU93FP698s19KTOyu7uxgl7Oi3bvsqHFO5JfiR7B+4h8lh9dxw==
+  dependencies:
+    "@react-navigation/elements" "^1.3.19"
+    warn-once "^0.1.0"
+
 "@sideway/address@^4.1.3":
   version "4.1.4"
   resolved "https://registry.npmjs.org/@sideway/address/-/address-4.1.4.tgz"
@@ -2282,7 +2295,7 @@ babel-plugin-jest-hoist@^29.6.3:
 
 babel-plugin-module-resolver@^5.0.0:
   version "5.0.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-module-resolver/-/babel-plugin-module-resolver-5.0.0.tgz#2b7fc176bd55da25f516abf96015617b4f70fc73"
+  resolved "https://registry.npmjs.org/babel-plugin-module-resolver/-/babel-plugin-module-resolver-5.0.0.tgz"
   integrity sha512-g0u+/ChLSJ5+PzYwLwP8Rp8Rcfowz58TJNCe+L/ui4rpzE/mg//JVX0EWBUYoxaextqnwuGHzfGp2hh0PPV25Q==
   dependencies:
     find-babel-config "^2.0.0"
@@ -2415,7 +2428,7 @@ brace-expansion@^1.1.7:
 
 brace-expansion@^2.0.1:
   version "2.0.1"
-  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-2.0.1.tgz#1edc459e0f0c548486ecf9fc99f2221364b9a0ae"
+  resolved "https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.1.tgz"
   integrity sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==
   dependencies:
     balanced-match "^1.0.0"
@@ -3372,7 +3385,7 @@ finalhandler@1.1.2:
 
 find-babel-config@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/find-babel-config/-/find-babel-config-2.0.0.tgz#a8216f825415a839d0f23f4d18338a1cc966f701"
+  resolved "https://registry.npmjs.org/find-babel-config/-/find-babel-config-2.0.0.tgz"
   integrity sha512-dOKT7jvF3hGzlW60Gc3ONox/0rRZ/tz7WCil0bqA1In/3I8f1BctpXahRnEKDySZqci7u+dqq93sZST9fOJpFw==
   dependencies:
     json5 "^2.1.1"
@@ -3556,7 +3569,7 @@ glob@^7.1.3, glob@^7.1.4:
 
 glob@^8.0.3:
   version "8.1.0"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-8.1.0.tgz#d388f656593ef708ee3e34640fdfb99a9fd1c33e"
+  resolved "https://registry.npmjs.org/glob/-/glob-8.1.0.tgz"
   integrity sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==
   dependencies:
     fs.realpath "^1.0.0"
@@ -5060,7 +5073,7 @@ minimatch@^3.0.2, minimatch@^3.0.4, minimatch@^3.0.5, minimatch@^3.1.1, minimatc
 
 minimatch@^5.0.1:
   version "5.1.6"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-5.1.6.tgz#1cfcb8cf5522ea69952cd2af95ae09477f122a96"
+  resolved "https://registry.npmjs.org/minimatch/-/minimatch-5.1.6.tgz"
   integrity sha512-lKwV/1brpG6mBUFHtb7NUmtABCb2WZZmm2wNiOA5hAb8VdCS4B3dtMWyvcoViccwAW/COERjXLt0zP1zXUN26g==
   dependencies:
     brace-expansion "^2.0.1"
@@ -5441,7 +5454,7 @@ pkg-dir@^4.2.0:
 
 pkg-up@^3.1.0:
   version "3.1.0"
-  resolved "https://registry.yarnpkg.com/pkg-up/-/pkg-up-3.1.0.tgz#100ec235cc150e4fd42519412596a28512a0def5"
+  resolved "https://registry.npmjs.org/pkg-up/-/pkg-up-3.1.0.tgz"
   integrity sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==
   dependencies:
     find-up "^3.0.0"
@@ -5546,6 +5559,11 @@ react-devtools-core@^4.27.2:
     shell-quote "^1.6.1"
     ws "^7"
 
+react-freeze@^1.0.0:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-freeze/-/react-freeze-1.0.3.tgz#5e3ca90e682fed1d73a7cb50c2c7402b3e85618d"
+  integrity sha512-ZnXwLQnGzrDpHBHiC56TXFXvmolPeMjTn1UOm610M4EXGzbEDR7oOIyS2ZiItgbs6eZc4oU/a0hpk8PrcKvv5g==
+
 "react-is@^16.12.0 || ^17.0.0 || ^18.0.0", react-is@^18.0.0, react-is@^18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
@@ -5594,6 +5612,24 @@ react-native-paper@^5.10.6:
     "@callstack/react-theme-provider" "^3.0.9"
     color "^3.1.2"
     use-latest-callback "^0.1.5"
+
+react-native-responsive-screen@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.npmjs.org/react-native-responsive-screen/-/react-native-responsive-screen-1.4.2.tgz"
+  integrity sha512-BLYz0UUpeohrib7jbz6wDmtBD5OmiuMRko4IT8kIF63taXPod/c5iZgmWnr5qOnK8hMuKiGMvsM3sC+eHX/lEQ==
+
+react-native-safe-area-context@^4.7.2:
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.7.2.tgz#1673aa99b6a9235e7faaf5a248e69795d6e54e07"
+  integrity sha512-5fy/hRNJ7bI/U2SliOeKf0D80J4lXPc1NsRiNS7Xaz8YTnqlzWib1ViItkwKPfufe54YKzVBMmM32RpdzvO2gg==
+
+react-native-screens@^3.25.0:
+  version "3.25.0"
+  resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-3.25.0.tgz#cf45e271ce733c9cf782fef8c9b3eb9e53faf01d"
+  integrity sha512-TSC2Ad0hh763I8QT6XxMsPXAagQ+RawDSdFtKRvIz9fCYr96AjRwwaqmYivbqlDywOgcRBkIVynkFtp0ThmlYw==
+  dependencies:
+    react-freeze "^1.0.0"
+    warn-once "^0.1.0"
 
 react-native-vector-icons@^10.0.0:
   version "10.0.0"
@@ -5792,7 +5828,7 @@ require-main-filename@^2.0.0:
 
 reselect@^4.1.7:
   version "4.1.8"
-  resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.1.8.tgz#3f5dc671ea168dccdeb3e141236f69f02eaec524"
+  resolved "https://registry.npmjs.org/reselect/-/reselect-4.1.8.tgz"
   integrity sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==
 
 resolve-cwd@^3.0.0:
@@ -6529,6 +6565,11 @@ walker@^1.0.7, walker@^1.0.8:
   integrity sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==
   dependencies:
     makeerror "1.0.12"
+
+warn-once@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/warn-once/-/warn-once-0.1.1.tgz#952088f4fb56896e73fd4e6a3767272a3fccce43"
+  integrity sha512-VkQZJbO8zVImzYFteBXvBOZEl1qL175WH8VmZcxF2fZAoudNhNDvHi+doCaAEdU2l2vtcIwa2zn0QK5+I1HQ3Q==
 
 wcwidth@^1.0.1:
   version "1.0.1"

@@ -23,6 +23,7 @@ module.exports = {
           '@constants': './src/constants',
           '@helpers': './src/helpers',
           '@components': './src/components',
+          '@core-ui': './src/core-ui',
         },
       },
     ],
