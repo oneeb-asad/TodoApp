@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView as RNSafeAreaView } from 'react-native';
-import { COLOR } from '@constants';
+import { color } from '@constants';
 
 export const SafeAreaView = ({ children }) => {
 
@@ -15,6 +15,6 @@ const styles = () =>
     StyleSheet.create({
         container: {
             flex: 1,
-            backgroundColor: COLOR.lightMode
+            backgroundColor: color.black50
         },
     });
