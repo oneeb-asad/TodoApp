@@ -4,7 +4,7 @@ import { styles } from "./styles"
 import { TopTab } from "../TopTabs"
 
 export const Header = () => {
-    const [selectedTab, setSelectedTab] = useState("Today");
+    const [selectedTab, setSelectedTab] = useState("All");
     return (
         <View style={styles.main}>
             <Text style={styles.heading}>My {'\n'}Todos</Text>
@@ -22,18 +22,18 @@ export const Header = () => {
                         showImage={true}
                     />
                     <TopTab
-                        title={'Today'}
-                        onPress={() => setSelectedTab('Today')}
-                        selectedTab={selectedTab}
-                    />
-                    <TopTab
-                        title={'Upcoming'}
-                        onPress={() => setSelectedTab('Upcoming')}
-                        selectedTab={selectedTab}
-                    />
-                    <TopTab
                         title={'All'}
                         onPress={() => setSelectedTab('All')}
+                        selectedTab={selectedTab}
+                    />
+                    <TopTab
+                        title={'Completed'}
+                        onPress={() => setSelectedTab('Completed')}
+                        selectedTab={selectedTab}
+                    />
+                    <TopTab
+                        title={'Incomplete'}
+                        onPress={() => setSelectedTab('Incomplete')}
                         selectedTab={selectedTab}
                     />
                 </ScrollView>

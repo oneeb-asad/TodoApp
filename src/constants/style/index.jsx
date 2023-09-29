@@ -63,7 +63,6 @@ export const commonStyle = StyleSheet.create({
     f_12: {
         fontSize: wp(12)
     },
-
     flex_1: {
         flex: 1
     },
