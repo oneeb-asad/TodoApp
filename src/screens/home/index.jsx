@@ -17,7 +17,6 @@ export const Home = () => {
                     isVisible={showAddTodo}
                     onBackdropPress={toggleCreateTodo}
                 />
-
             }
         </SafeAreaView>
     )

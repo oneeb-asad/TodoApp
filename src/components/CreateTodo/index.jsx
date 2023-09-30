@@ -9,8 +9,9 @@ import moment from 'moment';
 import { commonStyle, color } from "@constants";
 import { family } from "@assets";
 import { SelectButton } from "../SelectButton";
+import { SaveButton } from "../SaveButton";
 
-export const CreateTodo = ({ isVisible, onBackdropPress }) => {
+export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
     const inputRef = useRef();
     const [todo, setTodo] = useState('')
     const [importantTodo, setImportantTodo] = useState(false)
@@ -87,13 +88,13 @@ export const CreateTodo = ({ isVisible, onBackdropPress }) => {
                                     size={wp(5)}
                                 />
                             </TouchableOpacity>
-                            {/* <View style={styles.saveBtnContainer}>
-                                <PrimarySmallButton
+                            <View style={styles.saveBtnContainer}>
+                                <SaveButton
                                     title={'Save'}
-                                    onPress={() => onSubmit()}
+                                    // onPress={() => onSubmit()}
                                     disabled={!todo}
                                 />
-                            </View> */}
+                            </View>
                         </View>
                     </View>
                 </View>
@@ -115,10 +116,6 @@ export const CreateTodo = ({ isVisible, onBackdropPress }) => {
     )
 }
 const styles = StyleSheet.create({
-    avoidingViewContainer: {
-        // ...commonStyle.flex_1,
-        // justifyContent: 'flex-end'
-    },
     writeTodoContainer: {
         backgroundColor: color.grey200,
         ...commonStyle.pb_2,

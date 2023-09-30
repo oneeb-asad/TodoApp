@@ -7,6 +7,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import { images } from "@assets";
 import { Card } from "../Card";
 import { styles } from "./styles";
+import { data, color } from "@constants";
 
 export const SwipeList = ({ onPressStar, deleteTodo, completeTodo }) => {
 
@@ -50,7 +51,7 @@ export const SwipeList = ({ onPressStar, deleteTodo, completeTodo }) => {
     return (
         <View style={styles.container}>
             <SwipeListView
-                // data={data.mostPopular}
+                data={data.mostPopular}
                 renderItem={renderItem}
                 renderHiddenItem={renderHiddenItem}
                 leftOpenValue={wp(18)}
