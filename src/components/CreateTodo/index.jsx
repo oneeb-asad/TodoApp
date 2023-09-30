@@ -1,17 +1,20 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { KeyboardAvoidingView, Platform, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import Modal from 'react-native-modal'
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
+import { useDispatch } from "react-redux";
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import moment from 'moment';
+import { addTask } from "@redux";
 import { commonStyle, color } from "@constants";
 import { family } from "@assets";
 import { SelectButton } from "../SelectButton";
 import { SaveButton } from "../SaveButton";
 
 export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
+    const dispatch = useDispatch();
     const inputRef = useRef();
     const [todo, setTodo] = useState('')
     const [importantTodo, setImportantTodo] = useState(false)
@@ -33,7 +36,6 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
         });
         setDatePickerVisibility(false);
     };
-
     const handleTimeConfirm = (time) => {
         setSelectedTime({
             completeTime: time,
@@ -41,7 +43,22 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
         });
         setTimePickerVisibility(false);
     };
-
+    const handleAddTask = () => {
+        if (todo.trim() === "") return;
+        const formattedDate = moment(selectedDate.completeDate).format('DD MMM YY');
+        const formattedTime = moment(selectedTime.completeTime).format('HH:mm');
+        dispatch(
+            addTask({
+                id: Date.now(),
+                text: todo,
+                important: importantTodo,
+                date: formattedDate,
+                time: formattedTime,
+            })
+        );
+        setTodo("");
+        onBackdropPress();
+    };
     return (
         <Modal
             isVisible={isVisible}
@@ -91,7 +108,7 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                             <View style={styles.saveBtnContainer}>
                                 <SaveButton
                                     title={'Save'}
-                                    // onPress={() => onSubmit()}
+                                    onPress={() => handleAddTask()}
                                     disabled={!todo}
                                 />
                             </View>

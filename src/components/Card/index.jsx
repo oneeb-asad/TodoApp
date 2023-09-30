@@ -5,33 +5,26 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import { commonStyle, color } from '@constants';
 import { styles } from './styles';
 
-export const Card = ({ todoItem, onPressStar }) => {
-    const { index, item } = todoItem
+export const Card = ({ item, index, onPressStar }) => {
     return (
         <View style={styles.cardContainer}>
             <View style={commonStyle.flex_1}>
                 <Text style={[styles.todoTitle,
                 {
-                    textDecorationLine: item?.completeTodo ? 'line-through' : 'none',
-                    textDecorationColor: item?.completeTodo ? color.grey400 : color.white50,
-                    color: item?.completeTodo ? color.grey400 : color.white50,
+                    textDecorationLine: item?.completed ? 'line-through' : 'none',
+                    textDecorationColor: item?.completed ? color.grey400 : color.white50,
+                    color: item?.completed ? color.grey400 : color.white50,
                 }
-                ]}>{item?.itemName}</Text>
-                {/* <View style={styles.timeContainer}>
-                    <Text style={styles.timeText}>{item?.todoDate?.showDate} {item?.todoTime?.showTime && ' at ' + item?.todoTime?.showTime}</Text>
-                </View> */}
+                ]}>{item?.text}</Text>
                 <View style={styles.timeContainer}>
-                    <Text style={styles.timeText}>12:00</Text>
+                    <Text style={styles.timeText}>{item?.date} {!item?.time ? `at ${item?.time}` : null}</Text>
                 </View>
             </View>
             <AntDesign
-                name={item?.todoImp ? 'star' : 'staro'}
+                name={item?.important ? 'star' : 'staro'}
                 size={wp(8)}
-                color={item?.todoImp ? color.primary50 : color.grey400}
-            // onPress={() => onPressStar({
-            //     index,
-            //     item
-            // })}
+                color={item?.important ? color.primary50 : color.grey400}
+                onPress={onPressStar}
             />
         </View>
     )

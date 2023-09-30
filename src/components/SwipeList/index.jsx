@@ -1,16 +1,26 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
 import { SwipeListView } from "react-native-swipe-list-view";
 import { widthPercentageToDP, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTask, completeTask, toggleStar } from "@redux";
 import { images } from "@assets";
+import { data, color } from "@constants";
 import { Card } from "../Card";
 import { styles } from "./styles";
-import { data, color } from "@constants";
 
-export const SwipeList = ({ onPressStar, deleteTodo, completeTodo }) => {
 
+export const SwipeList = ({ swipeListData, onPressStar, deleteTodo, completeTodo }) => {
+    // For updating redux state
+    const dispatch = useDispatch();
+
+    //Data Coming From Redux
+    const todos = useSelector((state) => state?.tasks?.tasks);
+    // console.log(todos)
+
+    //List Empty Components
     const ListEmptyComponent = () => {
         return (
             <View style={styles.emptyComponentContainer}>
@@ -22,36 +32,51 @@ export const SwipeList = ({ onPressStar, deleteTodo, completeTodo }) => {
             </View>
         )
     }
-    const renderItem = data => {
+    //Render Items
+    const renderItem = ({ item, index }) => {
         return (
             <Card
-                todoItem={data}
-                onPressStar={onPressStar}
+                item={item}
+                index={index}
+                onPressStar={() => handleToggleStar(item.id)}
             />
         )
     }
+    //SwipeList renderHidden Function
     const renderHiddenItem = (data, rowMap) => (
         <View style={styles.rowBack}>
             <TouchableOpacity style={{ ...styles.backLeftBtn, ...styles.backLeftBtnLeft }}
-            // onPress={() => completeRow(rowMap, data)
-            // }
+                onPress={() => handleCompleteTodo(data.item.id)}
             >
-
                 <AntDesign name='check' size={wp(8)} color={color.blac100} />
             </TouchableOpacity>
             <TouchableOpacity
                 style={[styles.backRightBtn, styles.backRightBtnRight]}
-            // onPress={() => deleteRow(rowMap, data)}
+                onPress={() => handleDeleteTodo(data.item.id)}
             >
                 <Feather name='trash' size={wp(8)} color={color.blac100} />
             </TouchableOpacity>
         </View>
     );
 
+    //Function For Completion Task
+    const handleCompleteTodo = (taskId) => {
+        dispatch(completeTask(taskId));
+    };
+
+    //Function For Deleting Task
+    const handleDeleteTodo = (taskId) => {
+        dispatch(deleteTask(taskId));
+    };
+
+    const handleToggleStar = (taskId) => {
+        dispatch(toggleStar(taskId));
+    };
+
     return (
         <View style={styles.container}>
             <SwipeListView
-                data={data.mostPopular}
+                data={swipeListData}
                 renderItem={renderItem}
                 renderHiddenItem={renderHiddenItem}
                 leftOpenValue={wp(18)}
@@ -59,9 +84,7 @@ export const SwipeList = ({ onPressStar, deleteTodo, completeTodo }) => {
                 previewRowKey={'0'}
                 previewOpenValue={-40}
                 previewOpenDelay={3000}
-                // onRowDidOpen={onRowDidOpen}
                 style={styles.listStyle}
-                // ItemSeparatorComponent={itemSeparatorComponent}
                 contentContainerStyle={styles.contentContainer}
                 showsVerticalScrollIndicator={false}
                 ListEmptyComponent={ListEmptyComponent}
@@ -69,4 +92,3 @@ export const SwipeList = ({ onPressStar, deleteTodo, completeTodo }) => {
         </View>
     )
 }
-

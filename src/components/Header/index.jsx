@@ -3,8 +3,8 @@ import { View, Text, ScrollView } from "react-native"
 import { styles } from "./styles"
 import { TopTab } from "../TopTabs"
 
-export const Header = () => {
-    const [selectedTab, setSelectedTab] = useState("All");
+export const Header = ({ selectedTab, setSelectedTab }) => {
+    // const [selectedTab, setSelectedTab] = useState("All");
     return (
         <View style={styles.main}>
             <Text style={styles.heading}>My {'\n'}Todos</Text>

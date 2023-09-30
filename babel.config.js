@@ -24,6 +24,7 @@ module.exports = {
           '@helpers': './src/helpers',
           '@components': './src/components',
           '@core-ui': './src/core-ui',
+          '@redux': './src/redux',
         },
       },
     ],
