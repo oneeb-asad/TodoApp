@@ -1,13 +1,12 @@
-import React, { useState } from "react"
+import React from "react"
 import { View, Text, ScrollView } from "react-native"
 import { styles } from "./styles"
 import { TopTab } from "../TopTabs"
 
 export const Header = ({ selectedTab, setSelectedTab }) => {
-    // const [selectedTab, setSelectedTab] = useState("All");
     return (
         <View style={styles.main}>
-            <Text style={styles.heading}>My {'\n'}Todos</Text>
+            <Text style={styles.heading}>My Todos</Text>
             <View>
 
                 <ScrollView

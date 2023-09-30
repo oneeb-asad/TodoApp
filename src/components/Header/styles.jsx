@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
         color: color.white50,
         ...commonStyle.f_12,
         ...commonStyle.pl_6,
-        fontFamily: family.Title
+        fontFamily: family.BebasNeue
     },
     contentContainerStyle: {
         ...commonStyle.pr_6,

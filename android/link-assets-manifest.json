@@ -2,6 +2,14 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "src/assets/fonts/AROneSans-Medium.ttf",
+      "sha1": "694bd0c4a7e85ceca8a7e6e112338072023e5d4b"
+    },
+    {
+      "path": "src/assets/fonts/BebasNeue-Regular.ttf",
+      "sha1": "8b3aaeb978f3cb5f575860774b50c332338563c1"
+    },
+    {
       "path": "src/assets/fonts/Evidance Display Demo.otf",
       "sha1": "6d21845ba27e9e7c95a6c213f87a97c75da379f3"
     },
@@ -42,8 +50,12 @@
       "sha1": "297919d59c9ba4fa17251cdb9f06c26ca906e593"
     },
     {
+      "path": "src/assets/fonts/SpaceGrotesk-SemiBold.ttf",
+      "sha1": "0f5ec8c385c42b65cd8bcb494f26e9c282d6a107"
+    },
+    {
       "path": "src/assets/fonts/index.jsx",
-      "sha1": "c5a37bc57444976c36699313b67f483ab50f88c7"
+      "sha1": "400b691e902f9f1beca63a705010d0d606d5ce91"
     }
   ]
 }
