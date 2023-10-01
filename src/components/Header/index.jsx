@@ -1,16 +1,17 @@
 import React from "react"
-import { View, Text, ScrollView, TouchableOpacity } from "react-native"
+import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native"
 import { styles } from "./styles"
 import { TopTab } from "../TopTabs"
+import { images } from "@assets"
 
 export const Header = ({ selectedTab, setSelectedTab, onSortByDueDate }) => {
     return (
         <View style={styles.main}>
-            <View style={{ flexDirection: 'row' }}>
+            <View style={styles.row}>
                 <Text style={styles.heading}>My Todos</Text>
-                {/* <TouchableOpacity onPress={onSortByDueDate}>
-                    <Text style={styles.heading}>Sort By</Text>
-                </TouchableOpacity> */}
+                <TouchableOpacity onPress={onSortByDueDate}>
+                    <Image source={images.sort} style={styles.image} />
+                </TouchableOpacity>
             </View>
             <View>
                 <ScrollView

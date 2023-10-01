@@ -20,9 +20,9 @@ export const styles = StyleSheet.create({
     },
     heading: {
         color: color.primary50,
-        fontFamily: family.Title,
+        fontFamily: family.BebasNeue,
         textAlign: 'center',
-        ...commonStyle.f_8,
+        ...commonStyle.f_12,
         ...commonStyle.mh_8,
     },
     subHeading: {

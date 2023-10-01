@@ -16,34 +16,20 @@ import { styles } from "./styles";
 
 export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
     const dispatch = useDispatch();
-    // const inputRef = useRef();
     const [todo, setTodo] = useState('')
     const [description, setDescription] = useState('')
     const [importantTodo, setImportantTodo] = useState(false)
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-    const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
     const [selectedDate, setSelectedDate] = useState({
         completeDate: new Date(),
         showDate: ('Today')
     });
-    const [selectedTime, setSelectedTime] = useState({
-        completeTime: '',
-        showTime: ''
-    });
-
     const handleDateConfirm = (date) => {
         setSelectedDate({
             completeDate: date,
             showDate: moment(date).format('DD MMM'),
         });
         setDatePickerVisibility(false);
-    };
-    const handleTimeConfirm = (time) => {
-        setSelectedTime({
-            completeTime: time,
-            showTime: moment(time).format('h:mm A'),
-        });
-        setTimePickerVisibility(false);
     };
     const handleAddTask = () => {
         if (todo.trim() === "") return;
@@ -55,6 +41,7 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                 description: description,
                 important: importantTodo,
                 date: formattedDate,
+                completedDate: selectedDate.completeDate
             })
         );
         setTodo("");
@@ -69,16 +56,20 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 style={styles.avoidingViewContainer}>
-
                 <View style={styles.writeTodoContainer}>
                     <View>
                         <TextInput
                             placeholder='Todo'
                             placeholderTextColor={color.grey500}
                             value={todo}
-                            onChangeText={(val) => setTodo(val)}
+                            onChangeText={(val) => {
+                                if (val.length <= 20) {
+                                    setTodo(val);
+                                }
+                            }}
                             style={styles.inputStyle}
                             autoFocus={isVisible}
+                            maxLength={20}
                         />
                         <TextInput
                             placeholder='Description'
@@ -87,7 +78,6 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                             onChangeText={(val) => setDescription(val)}
                             style={styles.inputStyle}
                             multiline={true}
-                            autoFocus={isVisible}
                         />
                         <View style={styles.btnsRowContainer}>
                             <SelectButton
@@ -125,12 +115,6 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                 onCancel={() => setDatePickerVisibility(false)}
                 minimumDate={new Date()}
             />
-            {/* <DateTimePickerModal
-                isVisible={isTimePickerVisible}
-                mode="time"
-                onConfirm={handleTimeConfirm}
-                onCancel={() => setTimePickerVisibility(false)}
-            /> */}
         </Modal>
     )
 }

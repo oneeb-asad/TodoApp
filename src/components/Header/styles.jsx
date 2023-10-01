@@ -11,10 +11,16 @@ export const styles = StyleSheet.create({
         color: color.white50,
         ...commonStyle.f_12,
         ...commonStyle.pl_6,
-        fontFamily: family.BebasNeue,
+        fontFamily: family.BebasNeue
     },
     contentContainerStyle: {
         ...commonStyle.pr_6,
         ...commonStyle.mt_3,
+    },
+    image: {
+        width: 35, height: 35, ...commonStyle.mr_4
+    },
+    row: {
+        ...commonStyle.rowJustify
     }
 })

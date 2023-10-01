@@ -7,12 +7,13 @@ import Feather from 'react-native-vector-icons/Feather';
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTask, completeTask, toggleStar } from "@redux";
 import { images } from "@assets";
-import { data, color } from "@constants";
+import { data, color, routes } from "@constants";
 import { Card } from "../Card";
 import { styles } from "./styles";
 
 
-export const SwipeList = ({ swipeListData, onPressStar, deleteTodo, completeTodo }) => {
+export const SwipeList = ({ swipeListData, onPressStar, deleteTodo, completeTodo, onPress }) => {
+
     // For updating redux state
     const dispatch = useDispatch();
 

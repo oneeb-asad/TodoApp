@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { SafeAreaView } from '@core-ui';
 import { color, commonStyle } from '@constants';
@@ -27,15 +27,17 @@ export const Home = () => {
 
     return (
         <SafeAreaView>
-            <Header selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
-            <SwipeList swipeListData={filteredTodos} />
+            <ScrollView>
+                <Header selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+                <SwipeList swipeListData={filteredTodos} />
+                {showAddTodo &&
+                    <CreateTodo
+                        isVisible={showAddTodo}
+                        onBackdropPress={toggleCreateTodo}
+                    />
+                }
+            </ScrollView>
             <AddBtn onPress={toggleCreateTodo} />
-            {showAddTodo &&
-                <CreateTodo
-                    isVisible={showAddTodo}
-                    onBackdropPress={toggleCreateTodo}
-                />
-            }
         </SafeAreaView>
     )
 }
