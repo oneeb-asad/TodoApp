@@ -34,18 +34,22 @@ Before using the Todo App, ensure you have react native installed on your system
 ### Installation
 
 1. After forking the project you need to install node modules to run the app on Android and you need to install pods to run the app on iOS.
+   
 2. For node modules run the following command
-# npm i or yarn 
+- **npm i or yarn
+  
 3. For pods you first need to go to your iOS project by this command:
-# cd ios
+- **cd ios
+
 4. After landing in the iOS project run this command:
-# pod install
+- **pod install
+
 5. After the above execute these commands to run the project on both Android and iOS:
 
-# For Android
+- **For Android
 npx react-native run-android or yarn android
 
-# For iOS
+- **For iOS
 npx react-native run-ios or yarn ios
 
 
