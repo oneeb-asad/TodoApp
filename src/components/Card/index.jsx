@@ -9,6 +9,7 @@ export const Card = ({ item, index, onPressStar }) => {
     return (
         <TouchableOpacity style={styles.cardContainer} activeOpacity={1}>
             <View style={commonStyle.flex_1}>
+                {/* Todo Title */}
                 <View style={styles.row}>
                     <Text style={[styles.todoTitle,
                     {
@@ -17,6 +18,7 @@ export const Card = ({ item, index, onPressStar }) => {
                         color: item?.completed ? color.grey400 : color.white50,
                     }
                     ]}>{item?.text}</Text>
+                    {/* Star Icon for Importance */}
                     <AntDesign
                         name={item?.important ? 'star' : 'staro'}
                         size={wp(8)}
@@ -25,6 +27,7 @@ export const Card = ({ item, index, onPressStar }) => {
                     />
                 </View>
                 <View style={{ ...commonStyle.mt_1 }} />
+                {/* Todo Description (if available) */}
                 {item.description &&
                     <Text style={[styles.todoDescription,
                     {
@@ -33,13 +36,10 @@ export const Card = ({ item, index, onPressStar }) => {
                         color: item?.completed ? color.grey400 : color.white50,
                     }
                     ]}>{item?.description}</Text>}
-
+                {/* Date */}
                 <View style={styles.timeContainer}>
-                    <Text style={styles.timeText}>{item?.date}
-                        {/* {!item?.time ? `at ${item?.time}` : null} */}
-                    </Text>
+                    <Text style={styles.timeText}>{item?.date}</Text>
                 </View>
-
             </View>
         </TouchableOpacity>
     )

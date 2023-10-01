@@ -13,6 +13,12 @@ export const styles = StyleSheet.create({
         ...commonStyle.pl_6,
         fontFamily: family.BebasNeue
     },
+    subHeading: {
+        color: color.white50,
+        ...commonStyle.f_4,
+        ...commonStyle.pr_6,
+        fontFamily: family.BebasNeue
+    },
     contentContainerStyle: {
         ...commonStyle.pr_6,
         ...commonStyle.mt_3,

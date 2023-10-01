@@ -11,17 +11,15 @@ import { data, color, routes } from "@constants";
 import { Card } from "../Card";
 import { styles } from "./styles";
 
-
 export const SwipeList = ({ swipeListData, onPressStar, deleteTodo, completeTodo, onPress }) => {
 
     // For updating redux state
     const dispatch = useDispatch();
 
-    //Data Coming From Redux
+    // Get the list of todos from Redux store
     const todos = useSelector((state) => state?.tasks?.tasks);
-    // console.log(todos)
 
-    //List Empty Components
+    // List Empty Component when there are no todos
     const ListEmptyComponent = () => {
         return (
             <View style={styles.emptyComponentContainer}>
@@ -33,7 +31,8 @@ export const SwipeList = ({ swipeListData, onPressStar, deleteTodo, completeTodo
             </View>
         )
     }
-    //Render Items
+
+    // Render individual todo items
     const renderItem = ({ item, index }) => {
         return (
             <Card
@@ -43,8 +42,9 @@ export const SwipeList = ({ swipeListData, onPressStar, deleteTodo, completeTodo
             />
         )
     }
-    //SwipeList renderHidden Function
-    const renderHiddenItem = (data, rowMap) => (
+
+    // SwipeList renderHiddenItem Function for swipe actions
+    const renderHiddenItem = (data) => (
         <View style={styles.rowBack}>
             <TouchableOpacity style={{ ...styles.backLeftBtn, ...styles.backLeftBtnLeft }}
                 onPress={() => handleCompleteTodo(data.item.id)}
@@ -60,16 +60,17 @@ export const SwipeList = ({ swipeListData, onPressStar, deleteTodo, completeTodo
         </View>
     );
 
-    //Function For Completion Task
+    // Function for marking a task as completed
     const handleCompleteTodo = (taskId) => {
         dispatch(completeTask(taskId));
     };
 
-    //Function For Deleting Task
+    // Function for deleting a task
     const handleDeleteTodo = (taskId) => {
         dispatch(deleteTask(taskId));
     };
 
+    // Function for toggling the star icon for a task
     const handleToggleStar = (taskId) => {
         dispatch(toggleStar(taskId));
     };

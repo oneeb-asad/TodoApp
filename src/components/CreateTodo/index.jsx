@@ -16,6 +16,8 @@ import { styles } from "./styles";
 
 export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
     const dispatch = useDispatch();
+
+    // State variables for todo input, description, date selection, and importance
     const [todo, setTodo] = useState('')
     const [description, setDescription] = useState('')
     const [importantTodo, setImportantTodo] = useState(false)
@@ -24,6 +26,8 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
         completeDate: new Date(),
         showDate: ('Today')
     });
+
+    // Handle date selection from the date picker
     const handleDateConfirm = (date) => {
         setSelectedDate({
             completeDate: date,
@@ -31,9 +35,15 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
         });
         setDatePickerVisibility(false);
     };
+
+    // Handle adding a new task
     const handleAddTask = () => {
-        if (todo.trim() === "") return;
+        if (todo.trim() === "") return;  // Prevent adding empty tasks
+
+        // Format the selected date
         const formattedDate = moment(selectedDate.completeDate).format('DD MMM YY');
+
+        // Dispatch the addTask action to add the task to Redux state
         dispatch(
             addTask({
                 id: Date.now(),
@@ -44,6 +54,8 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                 completedDate: selectedDate.completeDate
             })
         );
+
+        // Clear the todo input and close the modal
         setTodo("");
         onBackdropPress();
     };
@@ -58,6 +70,7 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                 style={styles.avoidingViewContainer}>
                 <View style={styles.writeTodoContainer}>
                     <View>
+                        {/* Todo Input */}
                         <TextInput
                             placeholder='Todo'
                             placeholderTextColor={color.grey500}
@@ -71,6 +84,7 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                             autoFocus={isVisible}
                             maxLength={20}
                         />
+                        {/* Description Input */}
                         <TextInput
                             placeholder='Description'
                             placeholderTextColor={color.grey500}
@@ -80,6 +94,7 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                             multiline={true}
                         />
                         <View style={styles.btnsRowContainer}>
+                            {/* Date Selection Button */}
                             <SelectButton
                                 title={selectedDate?.showDate}
                                 onPress={() => setDatePickerVisibility(true)}
@@ -88,6 +103,7 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                             />
                             <View style={commonStyle.pl_3} />
                             <View style={commonStyle.pl_2} />
+                            {/* Toggle Importance */}
                             <TouchableOpacity
                                 activeOpacity={0.8}
                                 onPress={() => setImportantTodo(!importantTodo)}>
@@ -98,6 +114,7 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                                 />
                             </TouchableOpacity>
                             <View style={styles.saveBtnContainer}>
+                                {/* Save Button */}
                                 <SaveButton
                                     title={'Save'}
                                     onPress={() => handleAddTask()}
@@ -108,12 +125,13 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                     </View>
                 </View>
             </KeyboardAvoidingView>
+            {/* Date Picker Modal */}
             <DateTimePickerModal
                 isVisible={isDatePickerVisible}
                 mode="date"
                 onConfirm={handleDateConfirm}
                 onCancel={() => setDatePickerVisibility(false)}
-                minimumDate={new Date()}
+                minimumDate={new Date()} // Prevent selecting past dates
             />
         </Modal>
     )
