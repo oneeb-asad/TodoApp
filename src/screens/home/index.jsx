@@ -8,11 +8,11 @@ import { AddBtn, CreateTodo, Header, SwipeList } from '@components';
 
 export const Home = () => {
     const todos = useSelector((state) => state?.tasks?.tasks);
-    // console.log(todos)
     const [selectedTab, setSelectedTab] = useState('All');
     const [showAddTodo, setShowAddTodo] = useState(false);
     const toggleCreateTodo = () => setShowAddTodo(!showAddTodo);
 
+    // Filtering task based on selected tab
     const filteredTodos = todos.filter((todo) => {
         if (selectedTab === 'Important') {
             return todo.important;
@@ -23,6 +23,7 @@ export const Home = () => {
         }
         return true;
     });
+
     return (
         <SafeAreaView>
             <Header selectedTab={selectedTab} setSelectedTab={setSelectedTab} />

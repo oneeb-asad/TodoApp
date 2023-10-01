@@ -25,6 +25,7 @@ module.exports = {
           '@components': './src/components',
           '@core-ui': './src/core-ui',
           '@redux': './src/redux',
+          '@navigation': './src/navigation',
         },
       },
     ],

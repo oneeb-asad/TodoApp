@@ -1,7 +1,5 @@
 export const data = {
-    mostPopular: [
-        { id: '1', itemName: 'Rehab Roller' },
-        { id: '2', itemName: 'Recovery Tape' },
-
-    ]
+    list: [
+        { id: '1', task: 'XYZ TASK' },
+        { id: '2', task: 'ABC Task' }]
 };
