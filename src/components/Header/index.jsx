@@ -1,14 +1,18 @@
 import React from "react"
-import { View, Text, ScrollView } from "react-native"
+import { View, Text, ScrollView, TouchableOpacity } from "react-native"
 import { styles } from "./styles"
 import { TopTab } from "../TopTabs"
 
-export const Header = ({ selectedTab, setSelectedTab }) => {
+export const Header = ({ selectedTab, setSelectedTab, onSortByDueDate }) => {
     return (
         <View style={styles.main}>
-            <Text style={styles.heading}>My Todos</Text>
+            <View style={{ flexDirection: 'row' }}>
+                <Text style={styles.heading}>My Todos</Text>
+                {/* <TouchableOpacity onPress={onSortByDueDate}>
+                    <Text style={styles.heading}>Sort By</Text>
+                </TouchableOpacity> */}
+            </View>
             <View>
-
                 <ScrollView
                     horizontal
                     contentContainerStyle={styles.contentContainerStyle}

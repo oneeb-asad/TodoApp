@@ -18,6 +18,10 @@ export const styles = StyleSheet.create({
         ...commonStyle.f_6,
         fontFamily: family.SemiBold
     },
+    todoDescription: {
+        color: color.white50,
+        ...commonStyle.f_4,
+    },
     timeContainer: {
         borderWidth: 1,
         borderColor: color.grey50,
@@ -31,5 +35,6 @@ export const styles = StyleSheet.create({
         color: color.grey500,
         ...commonStyle.f_4,
         fontFamily: family.Medium
-    }
+    },
+    row: { ...commonStyle.rowJustify }
 })

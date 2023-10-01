@@ -12,11 +12,13 @@ import { commonStyle, color } from "@constants";
 import { family } from "@assets";
 import { SelectButton } from "../SelectButton";
 import { SaveButton } from "../SaveButton";
+import { styles } from "./styles";
 
 export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
     const dispatch = useDispatch();
-    const inputRef = useRef();
+    // const inputRef = useRef();
     const [todo, setTodo] = useState('')
+    const [description, setDescription] = useState('')
     const [importantTodo, setImportantTodo] = useState(false)
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
@@ -46,14 +48,13 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
     const handleAddTask = () => {
         if (todo.trim() === "") return;
         const formattedDate = moment(selectedDate.completeDate).format('DD MMM YY');
-        const formattedTime = moment(selectedTime.completeTime).format('HH:mm');
         dispatch(
             addTask({
                 id: Date.now(),
                 text: todo,
+                description: description,
                 important: importantTodo,
                 date: formattedDate,
-                time: formattedTime,
             })
         );
         setTodo("");
@@ -63,7 +64,7 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
         <Modal
             isVisible={isVisible}
             onBackdropPress={onBackdropPress}
-            style={{ justifyContent: 'flex-end' }}
+            style={styles.flexEnd}
         >
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -72,13 +73,20 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                 <View style={styles.writeTodoContainer}>
                     <View>
                         <TextInput
-                            placeholder='Write your Todo'
+                            placeholder='Todo'
                             placeholderTextColor={color.grey500}
                             value={todo}
                             onChangeText={(val) => setTodo(val)}
                             style={styles.inputStyle}
+                            autoFocus={isVisible}
+                        />
+                        <TextInput
+                            placeholder='Description'
+                            placeholderTextColor={color.grey500}
+                            value={description}
+                            onChangeText={(val) => setDescription(val)}
+                            style={styles.inputStyle}
                             multiline={true}
-                            ref={inputRef}
                             autoFocus={isVisible}
                         />
                         <View style={styles.btnsRowContainer}>
@@ -89,12 +97,6 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                                 iconName={'calendar'}
                             />
                             <View style={commonStyle.pl_3} />
-                            <SelectButton
-                                title={selectedTime?.showTime}
-                                onPress={() => setTimePickerVisibility(true)}
-                                Icon={AntDesign}
-                                iconName={'clockcircleo'}
-                            />
                             <View style={commonStyle.pl_2} />
                             <TouchableOpacity
                                 activeOpacity={0.8}
@@ -123,39 +125,13 @@ export const CreateTodo = ({ isVisible, onBackdropPress, submitTodo }) => {
                 onCancel={() => setDatePickerVisibility(false)}
                 minimumDate={new Date()}
             />
-            <DateTimePickerModal
+            {/* <DateTimePickerModal
                 isVisible={isTimePickerVisible}
                 mode="time"
                 onConfirm={handleTimeConfirm}
                 onCancel={() => setTimePickerVisibility(false)}
-            />
+            /> */}
         </Modal>
     )
 }
-const styles = StyleSheet.create({
-    writeTodoContainer: {
-        backgroundColor: color.grey200,
-        ...commonStyle.pb_2,
-        ...commonStyle.ph_2
-    },
-    inputStyle: {
-        color: color.white50,
-        ...commonStyle.f_5,
-        lineHeight: 30,
-        fontFamily: family.Medium,
-        alignItems: 'center',
-        justifyContent: 'center',
-        maxHeight: Platform.OS === 'ios' ? hp(20) : hp(18),
-    },
-    btnsRowContainer: {
-        ...commonStyle.rowStyle,
-        ...commonStyle.pt_1,
-        width: '100%',
-    },
-    saveBtnContainer: {
-        flex: 1,
-        alignSelf: 'baseline',
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end'
-    }
-})
+

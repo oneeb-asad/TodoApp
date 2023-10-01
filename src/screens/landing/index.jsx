@@ -1,15 +1,16 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image } from "react-native";
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen'
-import { commonStyle, color, routes } from "@constants";
-import { family, images } from "@assets";
+import { routes } from "@constants";
+import { images } from "@assets";
 import { SaveButton } from "@components";
+import { styles } from "./styles";
 
 export const Landing = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.imageContainer}>
-                <Image source={images.landing} style={{ width: '70%', height: '70%' }} resizeMode='cover' />
+                <Image source={images.landing} style={styles.img} resizeMode='cover' />
             </View>
             <View style={styles.textContainer}>
                 <View>
@@ -24,34 +25,3 @@ export const Landing = ({ navigation }) => {
         </View>
     )
 }
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: color.bg,
-        ...commonStyle.ph_4
-    },
-    imageContainer: {
-        ...commonStyle.flex_1,
-        justifyContent: 'flex-end',
-        alignItems: 'center'
-    },
-    textContainer: {
-        ...commonStyle.flex_1,
-        justifyContent: 'space-around'
-    },
-    heading: {
-        color: color.primary50,
-        fontFamily: family.Title,
-        textAlign: 'center',
-        ...commonStyle.f_8,
-        ...commonStyle.mh_8,
-    },
-    subHeading: {
-        ...commonStyle.f_4,
-        color: color.white50,
-        marginHorizontal: wp(8),
-        textAlign: 'center',
-        ...commonStyle.mt_2,
-        fontFamily: family.Regular
-    }
-})

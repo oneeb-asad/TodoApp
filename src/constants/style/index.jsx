@@ -73,6 +73,10 @@ export const commonStyle = StyleSheet.create({
     center: {
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    rowJustify: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
     }
-
 })

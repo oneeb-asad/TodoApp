@@ -1,13 +1,17 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 import { AppStack } from '@navigation';
 import { Home } from '@screens';
-import store from './src/redux/store';
+import store, { persistor } from './src/redux/store';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <AppStack />
+      <PersistGate loading={null} persistor={persistor}>
+        <AppStack />
+      </PersistGate>
     </Provider>
   );
 }

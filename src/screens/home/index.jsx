@@ -8,6 +8,7 @@ import { AddBtn, CreateTodo, Header, SwipeList } from '@components';
 
 export const Home = () => {
     const todos = useSelector((state) => state?.tasks?.tasks);
+    console.log(todos, 'Todos')
     const [selectedTab, setSelectedTab] = useState('All');
     const [showAddTodo, setShowAddTodo] = useState(false);
     const toggleCreateTodo = () => setShowAddTodo(!showAddTodo);
